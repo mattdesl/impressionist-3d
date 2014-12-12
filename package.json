@@ -1,0 +1,48 @@
+{
+  "name": "impressionist-3d",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Matt DesLauriers",
+    "email": "dave.des@gmail.com",
+    "url": "https://github.com/mattdesl"
+  },
+  "dependencies": {
+    "array-range": "^1.0.1",
+    "as-number": "^1.0.0",
+    "canvas-pixels": "0.0.0",
+    "gl-vec2": "^1.0.0",
+    "randf": "^1.0.0",
+    "sampling": "^1.0.1",
+    "simplex-sampler": "^1.0.1",
+    "three": "^0.66.32-dev",
+    "three-orbit-viewer": "^69.2.2",
+    "verlet-point": "^1.2.1",
+    "verlet-system": "^1.0.15"
+  },
+  "devDependencies": {
+    "baboon-image-uri": "^1.0.1",
+    "bluebird": "^2.3.11",
+    "canvas-testbed": "^1.0.3",
+    "color-style": "^1.0.0",
+    "get-image-pixels": "^1.0.0",
+    "getuservideo": "^0.1.1",
+    "img": "^1.0.0",
+    "lerp": "^1.0.0",
+    "touch-position": "^1.0.3"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mattdesl/impressionist-3d.git"
+  },
+  "homepage": "https://github.com/mattdesl/impressionist-3d",
+  "bugs": {
+    "url": "https://github.com/mattdesl/impressionist-3d/issues"
+  }
+}
