@@ -32,6 +32,8 @@ function Motion(opt) {
         p.noise = 0
         p.duration = Math.random()*2
         p.speed = Math.random()
+        p.white = 0.0
+        p.size = 1
 
         var f = 0.001
         p.addForce([ f*randf(-1,1), f*randf(-1,1) ])

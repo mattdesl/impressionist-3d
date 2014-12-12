@@ -13,10 +13,17 @@
     "array-range": "^1.0.1",
     "as-number": "^1.0.0",
     "canvas-pixels": "0.0.0",
+    "clamp": "^1.0.1",
+    "color-convert": "^0.5.2",
+    "color-style": "^1.0.0",
+    "dom-css": "^1.0.4",
+    "getuservideo": "^0.1.2",
     "gl-vec2": "^1.0.0",
+    "gl-vec3": "^1.0.2",
     "randf": "^1.0.0",
     "sampling": "^1.0.1",
     "simplex-sampler": "^1.0.1",
+    "smoothstep": "^1.0.1",
     "three": "^0.66.32-dev",
     "three-orbit-viewer": "^69.2.2",
     "verlet-point": "^1.2.1",
@@ -31,10 +38,14 @@
     "getuservideo": "^0.1.1",
     "img": "^1.0.0",
     "lerp": "^1.0.0",
+    "replace": "^0.3.0",
     "touch-position": "^1.0.3"
   },
   "scripts": {
-    "test": "node test.js"
+    "bundle": "browserify demo/2d.js | uglifyjs -cm > build/bundle.js",
+    "html": "cp dev.html index.html && replace '{{entry}}' 'build/bundle.js' index.html",
+    "build": "npm run bundle && npm run html",
+    "test": "beefy --index=dev.html demo/2d.js"
   },
   "keywords": [],
   "repository": {
