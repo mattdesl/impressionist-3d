@@ -29,12 +29,13 @@ var image,
     mouseNrm = [0, 0],
     motion = Motion({ count: 1000 })
 
-loadImage(baboon).then(function(i) {
-    image = i
-    motion.speed = 0.09
-    pixels = getPixels(image)
-    return create(render, start, { onResize: resize })
-})
+loadImage('teapot_n.png')
+    .then(function(i) {
+        image = i
+        motion.speed = 0.09
+        pixels = getPixels(image)
+        return create(render, start, { onResize: resize })
+    })
 
 function resize(width, height) {
     style(author, {
@@ -105,18 +106,25 @@ function render(ctx, width, height) {
     ctx.restore()
 
     motion.points.forEach(function(p) {
-        vec.multiply(tmp, p.position, box)
-        vec.add(tmp, tmp, offset)
-        var dist = vec.distance(tmp, mouse)
-        var white = clamp(smoothstep(1.0, 0.0, dist / 100), 0, 1)
-        var force = clamp(smoothstep(1.5, 0.0, dist / 50), 0, 1)
+        // vec.multiply(tmp, p.position, box)
+        // vec.add(tmp, tmp, offset)
+        // var dist = vec.distance(tmp, mouse)
+        // var white = clamp(smoothstep(1.0, 0.0, dist / 100), 0, 1)
+        // var force = clamp(smoothstep(1.5, 0.0, dist / 50), 0, 1)
 
-        vec.subtract(tmp, tmp, mouse)
-        vec.normalize(tmp, tmp)
-        vec.scale(tmp, tmp, 0.0001 * force)
+        var nx = p.color[0]/255 * 2 - 1
+        var ny = p.color[1]/255 * 2 - 1
+
+        vec.set(tmp, nx, ny)
+        vec.scale(tmp, tmp, 0.001)
         p.addForce(tmp)
 
-        p.white = white
+        // vec.subtract(tmp, tmp, mouse)
+        // vec.normalize(tmp, tmp)
+        // vec.scale(tmp, tmp, 0.0001 * force)
+        // p.addForce(tmp)
+
+        // p.white = white
 
         // p.white *= 0.5
     })

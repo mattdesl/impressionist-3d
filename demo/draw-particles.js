@@ -19,10 +19,11 @@ module.exports = function(ctx, points, box, pixels, imageShape) {
             pxY = ~~(p.position[1]*imageShape[1]) % imageShape[1]
 
         var offset = (imageShape[0]-pxX-1) + (pxY * imageShape[0])
-        vec3.set(tmp, pixels[offset * 4 + 0], 
+        vec3.set(p.color, pixels[offset * 4 + 0], 
                   pixels[offset * 4 + 1],   
                   pixels[offset * 4 + 2])
-        vec3.scale(tmp, tmp, lerp(1, 1.5, p.white))
+        
+        // vec3.scale(p.color, p.color, lerp(1, 1.5, p.white))
         // var hsv = rgb2hsv(tmp)
         // hsv[0] = clamp(lerp(hsv[0], hsv[0]-50, p.white), 0, 360)
 
@@ -31,7 +32,8 @@ module.exports = function(ctx, points, box, pixels, imageShape) {
         // g = lerp(g, 40, p.white)
         // b = lerp(b, 30, p.white)
 
-        ctx.strokeStyle = colorStyle(tmp)
+
+        ctx.strokeStyle = colorStyle(p.color)
         ctx.beginPath()
         ctx.lineTo(px, py)
         ctx.lineTo(x, y)

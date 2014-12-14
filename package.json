@@ -12,20 +12,43 @@
   "dependencies": {
     "array-range": "^1.0.1",
     "as-number": "^1.0.0",
+    "brfs": "^1.2.0",
+    "bunny": "^1.0.1",
+    "canvas-orbit-camera": "^1.0.1",
     "canvas-pixels": "0.0.0",
     "clamp": "^1.0.1",
     "color-convert": "^0.5.2",
     "color-style": "^1.0.0",
     "dom-css": "^1.0.4",
+    "face-normals": "0.0.0",
     "getuservideo": "^0.1.2",
+    "gl-basic-shader": "^1.2.2",
+    "gl-clear": "^1.0.0",
+    "gl-fbo": "^2.0.3",
+    "gl-geometry": "^1.0.2",
+    "gl-mat4": "^1.0.1",
+    "gl-matrix": "^2.1.0",
+    "gl-shader-core": "^2.2.0",
+    "gl-sprite-batch": "^3.0.7",
+    "gl-texture2d": "^2.0.8",
+    "gl-texture2d-pixels": "^1.0.2",
     "gl-vec2": "^1.0.0",
     "gl-vec3": "^1.0.2",
+    "img": "^1.0.0",
+    "lerp": "^1.0.0",
+    "matcap": "0.0.1",
+    "normals": "^1.0.1",
+    "orbit-camera": "^1.0.0",
     "randf": "^1.0.0",
     "sampling": "^1.0.1",
     "simplex-sampler": "^1.0.1",
     "smoothstep": "^1.0.1",
+    "stanford-dragon": "^1.1.1",
+    "teapot": "^1.0.0",
     "three": "^0.66.32-dev",
     "three-orbit-viewer": "^69.2.2",
+    "touch-position": "^1.0.3",
+    "unindex-mesh": "^1.0.1",
     "verlet-point": "^1.2.1",
     "verlet-system": "^1.0.15"
   },
@@ -42,10 +65,11 @@
     "touch-position": "^1.0.3"
   },
   "scripts": {
-    "bundle": "browserify demo/2d.js | uglifyjs -cm > build/bundle.js",
-    "html": "cp dev.html index.html && replace '{{entry}}' 'build/bundle.js' index.html",
+    "bundle": "browserify demo/3d.js | uglifyjs -cm > build/bundle3d.js",
+    "html": "cp dev.html 3d.html && replace '{{entry}}' 'build/bundle3d.js' 3d.html",
     "build": "npm run bundle && npm run html",
-    "test": "beefy --index=dev.html demo/2d.js"
+    "test": "beefy --index=dev.html demo/2d.js",
+    "test-3d": "beefy --index=dev.html demo/3d.js -- -t brfs"
   },
   "keywords": [],
   "repository": {
@@ -55,5 +79,10 @@
   "homepage": "https://github.com/mattdesl/impressionist-3d",
   "bugs": {
     "url": "https://github.com/mattdesl/impressionist-3d/issues"
+  },
+  "browserify": {
+    "transform": [
+      "brfs"
+    ]
   }
 }

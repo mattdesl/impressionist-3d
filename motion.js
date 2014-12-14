@@ -34,6 +34,8 @@ function Motion(opt) {
         p.speed = Math.random()
         p.white = 0.0
         p.size = 1
+        p.color = [0,0,0]
+        p.fboColor = [0,0,0]
 
         var f = 0.001
         p.addForce([ f*randf(-1,1), f*randf(-1,1) ])
